@@ -10,7 +10,7 @@ namespace MiniProject
     {
         static void Main(string[] args)
         {
-
+            Console.WriteLine("Hello team");
         }
     }
 }
