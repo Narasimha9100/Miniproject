@@ -7,26 +7,37 @@ using System.IO;
 
 namespace MiniProject
 {
-    public class Headers
-    {
-        public string Continent { get; set; }
-        public string Country { get; set; }
-        public string City { get; set; }
-        public string Hotel { get; set; }
-        public int Stars { get; set; }
-        public int Date { get; set; }
-        public int EndDate { get; set; }
-        public int Price { get; set; }
-        public int DiscountedPrice { get; set; }
-        
-    }
+  
     class Program
     {
         static void Main(string[] args)
         {
-           
-            Console.WriteLine("Hello team");
-            Console.ReadLine();
+
+            try
+            {
+                string query = Console.ReadLine();
+                char[] separator = new char[] { '=' };
+                string[] values = query.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+                string indicator = values[0];
+                string continent = values[1];
+
+                if (!(query.ToLower().Contains("continent=")) || (!(query.Contains("="))))
+                {
+                    Console.WriteLine("Incorrect query");
+                }
+
+
+                String st = File.ReadAllText("D:\\Travel Agency Offers.tsv");
+                Console.WriteLine(st);
+            }
+
+            catch(Exception e)
+            {
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(e.Message);
+            }
+
+            Console.Read();
         }
     }
 }
