@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Data;
 
 namespace MiniProject
 {
@@ -25,10 +26,20 @@ namespace MiniProject
                 {
                     Console.WriteLine("Incorrect query");
                 }
+                else
+                {
+                    DataTable datatable = new DataTable();
+                    StreamReader streamreader = new StreamReader(@"D:\Travel Agency Offers.tsv");
+                    char[] delimiter = new char[] { '\t' };
+                    string[] columnheaders = streamreader.ReadLine().Split(delimiter);
+                    foreach (string columnheader in columnheaders)
+                    {
+                        datatable.Columns.Add(columnheader); // I've added the column headers here.
+                    }
+                }
 
 
-                String st = File.ReadAllText("D:\\Travel Agency Offers.tsv");
-                Console.WriteLine(st);
+               
             }
 
             catch(Exception e)
