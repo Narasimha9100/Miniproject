@@ -45,7 +45,21 @@ namespace MiniProject
                         datatable.Rows.Add(datarow);
                     }
 
-                    Console.ReadLine();
+                    if (datatable.Rows.Count > 1)
+                    {
+
+                        DataView dv = datatable.DefaultView;
+                        if (!string.IsNullOrEmpty(continent))
+                        {
+                            dv.RowFilter = "Continent = '" + continent + "'";
+                            if (dv.Count != 0)
+                            {
+                                Console.WriteLine("Results for Continent={0}({1})", continent, dv.Count);
+                            }    
+                        }
+                    }
+
+                        Console.ReadLine();
                 }
 
 
