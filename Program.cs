@@ -22,7 +22,7 @@ namespace MiniProject
                 string indicator = values[0];
                 string continent = values[1];
 
-                if (!(query.ToLower().Contains("continent=")) || (!(query.Contains("="))))
+                if (!(query.ToLower().Contains("continent")) || (!(query.Contains("="))))
                 {
                     Console.WriteLine("Incorrect query");
                 }
@@ -30,7 +30,7 @@ namespace MiniProject
                 {
                     DataTable datatable = new DataTable();
                     StreamReader streamreader = new StreamReader(@"D:\Travel Agency Offers.tsv");
-                    char[] delimiter = new char[] { '\t' }; 
+                    char delimiter = '\t' ; 
                     string[] columnheaders = streamreader.ReadLine().Split(delimiter);
                     foreach (string columnheader in columnheaders)
                     {
@@ -55,8 +55,16 @@ namespace MiniProject
                             if (dv.Count != 0)
                             {
                                 Console.WriteLine("Results for Continent={0}({1})", continent, dv.Count);
-                            }    
+                                Console.WriteLine();
+                                Console.WriteLine();
+                            }
+                            else
+                            {
+
+                                Console.WriteLine("No record found");
+                            }
                         }
+                       
                     }
 
                         Console.ReadLine();
