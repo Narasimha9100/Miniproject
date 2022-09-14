@@ -57,6 +57,17 @@ namespace MiniProject
                                 Console.WriteLine("Results for Continent={0}({1})", continent, dv.Count);
                                 Console.WriteLine();
                                 Console.WriteLine();
+                                DataTable filtercontinent = dv.ToTable();
+                                foreach (DataRow dr in filtercontinent.Rows)
+                                {
+                                    Console.WriteLine("Continent=" + dr[0]);
+                                    Console.WriteLine("Country:" + dr[1]);
+                                    Console.WriteLine("City:" + dr[2]);
+                                    Console.WriteLine("Hotel:" + dr[3]);
+                                    Console.WriteLine("Stars:" + dr[4]);
+                                    Console.WriteLine("Price:" + dr[7]);
+                                    Console.WriteLine("_____________________________________________________________________________________________________________________");
+                                }
                             }
                             else
                             {
